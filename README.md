@@ -1,8 +1,4 @@
-### The Questions
-
-Consider the following:
-
-1. Is it possible to measure the quality of an arbitrary section of code?
+### 1. Is it possible to measure the quality of an arbitrary section of code?
 If so, how should we measure?  If not, why not?
 
 Some my own thoughts after class of week 6. On the class, we learn some metrics to measure the code.
@@ -55,7 +51,7 @@ Finally, portability refers to how easy it is to take the software from one envi
 
 Some from a general point of view of quality, I think it is even hard to measure.
 
-2. On a scale of 1 to 10, what is the strength of the connection between quality and refactoring?  (Assume 1 means almost no connection, and 10 means a very strong connection)
+### 2. On a scale of 1 to 10, what is the strength of the connection between quality and refactoring?  (Assume 1 means almost no connection, and 10 means a very strong connection)
 
 Refactoring: a change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its obserable behavior.
 
