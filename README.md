@@ -7,10 +7,10 @@ Operands: identifiers, constants, N2(unique n2) <br />
 
 Length: N = N1 + N2 <br />
 Vocabulary: n = n1 + n2 <br />
-Volume: V = Nlog~2n <br />
+Volume: V = Nlog<sub>2</sub>n <br />
 Difficulty: D = (n1/2)*(N2/n2) <br />
 Effort: E = V * D <br />
-Bugs delivered: E^2/3^/3000 <br />
+Bugs delivered: E<sup>2/3</sup>/3000 <br />
 
 *Cyclocmatic Complexity Measures*: <br />
 v(G) = #edges - #vertices + 2 <br />
@@ -51,7 +51,7 @@ So from a more general point of view of quality, I think it is even harder to me
 
 Refactoring: a change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its obserable behavior.
 
-*Beck's Four Simple Design Rules*: <br />
+*Beck's Four Simple Design Rules*:
 1. Runs all the tests <br />
 2. Contains no duplications <br />
 3. Expresses intent <br />
