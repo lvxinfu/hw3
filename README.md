@@ -83,7 +83,7 @@ def generate_screens(self, n, movie, date, seats): # generate screens
 
 The refactoring makes the source code easier to read and the intent of its author easier to catch.
 
-I also took the OOP class last quarter and learned a lot of design patterns such as factory. I think design is very very important for a software in real business application. Using design patterns can provide us better organization and structure when requirements become very complicated. This makes unit test easier and also makes the capabilities of the application easier to extend. <br />
+I also took the OOP class last quarter and learned a lot of design patterns such as factory etc.. I think design is very very important for a software in real business application. Using design patterns can provide us better organization and structure when requirements become very complicated. This makes unit test easier and also makes the capabilities of the application easier to extend. <br />
 https://en.wikipedia.org/wiki/Software_design_pattern
 
 I do not think refactoring code can run faster nor use lower resource utilization since those are not the purpose of refactoring. I agree with that refactoring can only improve maintainability and extensibility not other quality attributes, so I will give 4 out of 10 for the strength of the connection between quality and refactoring. <br />
