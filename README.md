@@ -1,41 +1,38 @@
-### 1. Is it possible to measure the quality of an arbitrary section of code?
-If so, how should we measure?  If not, why not?
+### 1. Is it possible to measure the quality of an arbitrary section of code? If so, how should we measure?  If not, why not?
 
 Some my own thoughts after class of week 6. On the class, we learn some metrics to measure the code.
 
-Halstead's Complexity Measures:
-Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1)
-Operands: identifiers, constants, N2(unique n2)
+Halstead's Complexity Measures: <br />
+Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1) <br />
+Operands: identifiers, constants, N2(unique n2) <br />
 
-Length: N = N1 + N2
-Vocabulary: n = n1 + n2
-Volume: V = Nlog_2n
-Difficulty: D = (n1/2)*(N2/n2)
-Effort: E = V * D
-Bugs delivered: E^2/3/3000
+Length: N = N1 + N2 <br />
+Vocabulary: n = n1 + n2 <br />
+Volume: V = Nlog_2n <br />
+Difficulty: D = (n1/2)*(N2/n2) <br />
+Effort: E = V * D <br />
+Bugs delivered: E^2/3/3000 <br />
 
-Cyclocmatic Complexity Measures:
-It looks like we can use this way to measure the code.
+Cyclocmatic Complexity Measures: <br />
+v(G) = #edges - #vertices + 2 <br />
+v(G) = #binaryDescisions + 1 <br />
 
-v(G) = #edges - #vertices + 2
-v(G) = #binaryDescisions + 1
-
-Maintainability Index:
-MI = 171 - 5.2ln(V) - 0.23v(g) + 16.2ln(LOC)
+Maintainability Index: <br />
+MI = 171 - 5.2ln(V) - 0.23v(g) + 16.2ln(LOC) <br />
 
 First, it looks like we can measure the quality of a piece of code. But after think twice, I have a key concern that there is no clear explanation for the specific derived formula like bugs delivered and maintainability index. The set of programs used to derive the metric and evaluate it was small, and contained small programs only. And the programs were written in C, which may have rather different characteristics than current object-oriented languages such as C++ or Java.
 
-There is a study questioning software maintainance metrics.
+There is a study questioning software maintainance metrics. <br />
 https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.anda.mockus.esem.2012.pdf
 
-The conclusion is as follows:
-1. The considered common maintainability metrics were not mutually consistent in the considered projects.
-2. Among the considered maintainability metrics, only size and the inverse of cohesion were strongly correlated with the actual maintenance effort observed in the study.
+The conclusion is as follows: <br />
+1. The considered common maintainability metrics were not mutually consistent in the considered projects. <br />
+2. Among the considered maintainability metrics, only size and the inverse of cohesion were strongly correlated with the actual maintenance effort observed in the study. <br />
 
 So we may measure the quality of a small program like MI, but for real application I think it is really hard to measure. Moreover, the quality has many attributes.
 
-Here is a summary of quality attributes.
-https://www.spinellis.gr/codequality/intro.html
+Here is a summary of quality attributes. <br />
+https://www.spinellis.gr/codequality/intro.html <br />
 
 The functionality of software is the quality characteristic associated primarily with what the software does, rather than how it does it. The elements of the software's functionality are: the suitability of the functions for the specified tasks and the user's objectives, the accuracy of its results or operation, the interoperability of the software with other systems, and the security the software affords to its data. The suitability and interoperability characteristics are difficult to discern from code.
 
@@ -55,39 +52,36 @@ Some from a general point of view of quality, I think it is even hard to measure
 
 Refactoring: a change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its obserable behavior.
 
-Beck's Four Simple Design Rules:
-1. Runs all the tests
-2. Contains no duplications
-3. Expresses intent
-4. Minimum classes and methods
+Beck's Four Simple Design Rules: <br />
+1. Runs all the tests <br />
+2. Contains no duplications <br />
+3. Expresses intent <br />
+4. Minimum classes and methods <br />
 
-There is quantitative analysis showing that refactoring indeed does not decrease Cyclomatic Complexity. On the other hand, the qualitative analysis showed that a refactoring tends to improve code in terms of readability and maintainability.
+There is quantitative analysis showing that refactoring indeed does not decrease Cyclomatic Complexity. On the other hand, the qualitative analysis showed that a refactoring tends to improve code in terms of readability and maintainability. <br />
 http://www.mauricioaniche.com/wp-content/uploads/2013/04/wbma2013-refactoring1.pdf
 
-From Wikipedia, there are two general categories of benefits to the activity of refactoring.
-https://en.wikipedia.org/wiki/Code_refactoring
+From Wikipedia, there are two general categories of benefits to the activity of refactoring. <br />
+https://en.wikipedia.org/wiki/Code_refactoring <br />
 
 Maintainability. It is easier to fix bugs because the source code is easy to read and the intent of its author is easy to grasp. This might be achieved by reducing large monolithic routines into a set of individually concise, well-named, single-purpose methods. It might be achieved by moving a method to a more appropriate class, or by removing misleading comments.
 
 Extensibility. It is easier to extend the capabilities of the application if it uses recognizable design patterns, and it provides some flexibility where none before may have existed.
 
-From my own experience, especially homework one and two, I think it makes a lot of sense to me. For example, reducing large monolithic routines into a set of individully concise, well-named, single-purpose methods.
-Before:
-def gs(self, n, m, d, s): # generate screens
-    self.sl.append(screen(n, m, d, s))
-    self.sl[-1].gt(4)
+From my own experience, especially homework one and two, I think it makes a lot of sense to me. For example, reducing large monolithic routines into a set of individully concise, well-named, single-purpose methods. <br />
+Before: <br />
+def gs(self, n, m, d, s): # generate screens <br />
+    self.sl.append(screen(n, m, d, s)) <br />
+    self.sl[-1].gt(4) <br />
 
-After refactoring:
-def generate_screens(self, n, movie, date, seats): # generate screens
-    self.screens_list.append(Screen(n, movie, date, seats))
-    self.screens_list[-1].generate_tickets(4)
+After refactoring: <br />
+def generate_screens(self, n, movie, date, seats): # generate screens <br />
+    self.screens_list.append(Screen(n, movie, date, seats)) <br />
+    self.screens_list[-1].generate_tickets(4) <br />
 
 The refactoring makes the source code easier to read and the intent of its author easier to catch.
 
 I also took the OOP class last quarter and learned a lot of design patterns such as factory and proxy. I think design is very very important for a software in real business application. Using design patterns can provide us better organization and structure when requirements become very complicated. This makes unit test easier and also makes the capabilities of the application easier to extend.
 
-I do not think refactoring code can run faster nor use lower resource utilization since those are not the purpose of refactoring. I agree with that refactoring can only improve maintainability and extensibility not other quality attributes, so I will give 4 out of 10 for the strength of the connection between quality and refactoring.
+I do not think refactoring code can run faster nor use lower resource utilization since those are not the purpose of refactoring. I agree with that refactoring can only improve maintainability and extensibility not other quality attributes, so I will give 4 out of 10 for the strength of the connection between quality and refactoring. <br />
 https://arxiv.org/pdf/1502.03526v1.pdf
-
-IMPORTANT: Be sure to provide code examples as necessary.
-You can write the code yourself and/or cite online examples.
