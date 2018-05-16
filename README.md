@@ -2,8 +2,8 @@
 
 Some my own thoughts after class of week 6. On the class, we learn some metrics to measure the code. <br />
 * *Halstead's Complexity Measures*:
-1. Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1) <br />
-2. Operands: identifiers, constants, N2(unique n2) <br />
+* Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1) <br />
+* Operands: identifiers, constants, N2(unique n2) <br />
 Length: N = N1 + N2 <br />
 Vocabulary: n = n1 + n2 <br />
 Volume: V = Nlog<sub>2</sub>n <br />
@@ -11,11 +11,11 @@ Difficulty: D = (n1/2)*(N2/n2) <br />
 Effort: E = V * D <br />
 Bugs delivered: E<sup>2/3</sup>/3000 <br />
 
-* *Cyclocmatic Complexity Measures*: <br />
+* *Cyclocmatic Complexity Measures*:
 v(G) = #edges - #vertices + 2 <br />
 v(G) = #binaryDescisions + 1 <br />
 
-* *Maintainability Index*: <br />
+* *Maintainability Index*:
 MI = 171 - 5.2ln(V) - 0.23v(g) + 16.2ln(LOC) <br />
 
 First, it looks like we can measure the quality of a piece of code. But after think twice, I have a key concern that there is no clear explanation for the specific derived formula like bugs delivered and maintainability index. The set of programs used to derive the metric and evaluate it was small, and contained small programs only. And the programs were written in C, which may have rather different characteristics than current object-oriented languages such as C++ or Java.
@@ -23,7 +23,7 @@ First, it looks like we can measure the quality of a piece of code. But after th
 There is a study questioning software maintainance metrics. <br />
 https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.anda.mockus.esem.2012.pdf
 
-The conclusion is as follows: <br />
+The conclusion of this study is as follows:
 1. The considered common maintainability metrics were not mutually consistent in the considered projects. <br />
 2. Among the considered maintainability metrics, only size and the inverse of cohesion were strongly correlated with the actual maintenance effort observed in the study. <br />
 
