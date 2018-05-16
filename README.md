@@ -3,13 +3,13 @@
 Some my own thoughts after class of week 6. On the class, we learn some metrics to measure the code.
 1. Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1) <br />
 2. Operands: identifiers, constants, N2(unique n2) <br />
-* *Halstead's Complexity Measures*:
+* *Halstead's Complexity Measures*: <br />
 Length: N = N1 + N2 <br />
 Vocabulary: n = n1 + n2 <br />
 Volume: V = Nlog<sub>2</sub>n <br />
 Difficulty: D = (n1/2)*(N2/n2) <br />
 Effort: E = V * D <br />
-Bugs delivered: E<sup>2/3</sup>/3000 <br />
+Bugs delivered = E<sup>2/3</sup>/3000 <br />
 
 * *Cyclocmatic Complexity Measures*: <br />
 v(G) = #edges - #vertices + 2 <br />
