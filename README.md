@@ -1,16 +1,16 @@
 ### 1. Is it possible to measure the quality of an arbitrary section of code? If so, how should we measure?  If not, why not?
 
-Some my own thoughts after class of week 6. On the class, we learn some metrics to measure the code.
+Some my own thoughts after class of week 6. On the class, we learn some metrics to measure the code. <br />
 *Halstead's Complexity Measures*: <br />
 Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1) <br />
 Operands: identifiers, constants, N2(unique n2) <br />
 
 Length: N = N1 + N2 <br />
 Vocabulary: n = n1 + n2 <br />
-Volume: V = Nlog_2n <br />
+Volume: V = Nlog~2n <br />
 Difficulty: D = (n1/2)*(N2/n2) <br />
 Effort: E = V * D <br />
-Bugs delivered: E^2/3/3000 <br />
+Bugs delivered: E^2/3^/3000 <br />
 
 *Cyclocmatic Complexity Measures*: <br />
 v(G) = #edges - #vertices + 2 <br />
