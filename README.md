@@ -1,10 +1,9 @@
 ### 1. Is it possible to measure the quality of an arbitrary section of code? If so, how should we measure?  If not, why not?
 
 Some my own thoughts after class of week 6. On the class, we learn some metrics to measure the code. <br />
-*Halstead's Complexity Measures*: <br />
-Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1) <br />
-Operands: identifiers, constants, N2(unique n2) <br />
-
+* *Halstead's Complexity Measures*:
+1. Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1) <br />
+2. Operands: identifiers, constants, N2(unique n2) <br />
 Length: N = N1 + N2 <br />
 Vocabulary: n = n1 + n2 <br />
 Volume: V = Nlog<sub>2</sub>n <br />
@@ -12,11 +11,11 @@ Difficulty: D = (n1/2)*(N2/n2) <br />
 Effort: E = V * D <br />
 Bugs delivered: E<sup>2/3</sup>/3000 <br />
 
-*Cyclocmatic Complexity Measures*: <br />
+* *Cyclocmatic Complexity Measures*: <br />
 v(G) = #edges - #vertices + 2 <br />
 v(G) = #binaryDescisions + 1 <br />
 
-*Maintainability Index*: <br />
+* *Maintainability Index*: <br />
 MI = 171 - 5.2ln(V) - 0.23v(g) + 16.2ln(LOC) <br />
 
 First, it looks like we can measure the quality of a piece of code. But after think twice, I have a key concern that there is no clear explanation for the specific derived formula like bugs delivered and maintainability index. The set of programs used to derive the metric and evaluate it was small, and contained small programs only. And the programs were written in C, which may have rather different characteristics than current object-oriented languages such as C++ or Java.
@@ -70,16 +69,16 @@ Extensibility. It is easier to extend the capabilities of the application if it 
 From my own experience, especially homework one and two, I think it makes a lot of sense to me. For example, reducing large monolithic routines into a set of individully concise, well-named, single-purpose methods. <br />
 Before: <br />
 ```python
-def gs(self, n, m, d, s): # generate screens <br />
-    self.sl.append(screen(n, m, d, s)) <br />
-    self.sl[-1].gt(4) <br />
+def gs(self, n, m, d, s): # generate screens
+    self.sl.append(screen(n, m, d, s))
+    self.sl[-1].gt(4)
 ```
 
 After refactoring: <br />
 ```python
-def generate_screens(self, n, movie, date, seats): # generate screens <br />
-    self.screens_list.append(Screen(n, movie, date, seats)) <br />
-    self.screens_list[-1].generate_tickets(4) <br />
+def generate_screens(self, n, movie, date, seats): # generate screens
+    self.screens_list.append(Screen(n, movie, date, seats))
+    self.screens_list[-1].generate_tickets(4)
 ```
 
 The refactoring makes the source code easier to read and the intent of its author easier to catch.
