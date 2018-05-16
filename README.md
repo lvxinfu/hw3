@@ -1,8 +1,7 @@
 ### 1. Is it possible to measure the quality of an arbitrary section of code? If so, how should we measure?  If not, why not?
 
 Some my own thoughts after class of week 6. On the class, we learn some metrics to measure the code.
-
-Halstead's Complexity Measures: <br />
+*Halstead's Complexity Measures*: <br />
 Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1) <br />
 Operands: identifiers, constants, N2(unique n2) <br />
 
@@ -13,11 +12,11 @@ Difficulty: D = (n1/2)*(N2/n2) <br />
 Effort: E = V * D <br />
 Bugs delivered: E^2/3/3000 <br />
 
-Cyclocmatic Complexity Measures: <br />
+*Cyclocmatic Complexity Measures*: <br />
 v(G) = #edges - #vertices + 2 <br />
 v(G) = #binaryDescisions + 1 <br />
 
-Maintainability Index: <br />
+*Maintainability Index*: <br />
 MI = 171 - 5.2ln(V) - 0.23v(g) + 16.2ln(LOC) <br />
 
 First, it looks like we can measure the quality of a piece of code. But after think twice, I have a key concern that there is no clear explanation for the specific derived formula like bugs delivered and maintainability index. The set of programs used to derive the metric and evaluate it was small, and contained small programs only. And the programs were written in C, which may have rather different characteristics than current object-oriented languages such as C++ or Java.
@@ -46,13 +45,13 @@ The maintainability of software is probably the element that can best be approac
 
 Finally, portability refers to how easy it is to take the software from one environment (for example Windows) and transfer it to another (for example Mac OS X). Our main goal here is adaptability, the capability of the software's code to function in different environments. Other sub-characteristics of portability are mainly operational in nature: installability deals with the software's installation in different environments, co-existence examines how well the software plays in a crowded playground, and replaceability denotes the extend to which a software can be used as a drop-in replacement for another.
 
-Some from a general point of view of quality, I think it is even hard to measure.
+So from a more general point of view of quality, I think it is even harder to measure.
 
 ### 2. On a scale of 1 to 10, what is the strength of the connection between quality and refactoring?  (Assume 1 means almost no connection, and 10 means a very strong connection)
 
 Refactoring: a change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its obserable behavior.
 
-Beck's Four Simple Design Rules: <br />
+*Beck's Four Simple Design Rules*: <br />
 1. Runs all the tests <br />
 2. Contains no duplications <br />
 3. Expresses intent <br />
@@ -70,18 +69,23 @@ Extensibility. It is easier to extend the capabilities of the application if it 
 
 From my own experience, especially homework one and two, I think it makes a lot of sense to me. For example, reducing large monolithic routines into a set of individully concise, well-named, single-purpose methods. <br />
 Before: <br />
+```python
 def gs(self, n, m, d, s): # generate screens <br />
     self.sl.append(screen(n, m, d, s)) <br />
     self.sl[-1].gt(4) <br />
+```
 
 After refactoring: <br />
+```python
 def generate_screens(self, n, movie, date, seats): # generate screens <br />
     self.screens_list.append(Screen(n, movie, date, seats)) <br />
     self.screens_list[-1].generate_tickets(4) <br />
+```
 
 The refactoring makes the source code easier to read and the intent of its author easier to catch.
 
-I also took the OOP class last quarter and learned a lot of design patterns such as factory and proxy. I think design is very very important for a software in real business application. Using design patterns can provide us better organization and structure when requirements become very complicated. This makes unit test easier and also makes the capabilities of the application easier to extend.
+I also took the OOP class last quarter and learned a lot of design patterns such as factory. I think design is very very important for a software in real business application. Using design patterns can provide us better organization and structure when requirements become very complicated. This makes unit test easier and also makes the capabilities of the application easier to extend. <br />
+https://en.wikipedia.org/wiki/Software_design_pattern
 
 I do not think refactoring code can run faster nor use lower resource utilization since those are not the purpose of refactoring. I agree with that refactoring can only improve maintainability and extensibility not other quality attributes, so I will give 4 out of 10 for the strength of the connection between quality and refactoring. <br />
 https://arxiv.org/pdf/1502.03526v1.pdf
