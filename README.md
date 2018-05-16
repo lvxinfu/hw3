@@ -9,7 +9,7 @@ Vocabulary: n = n1 + n2 <br />
 Volume: V = Nlog<sub>2</sub>n <br />
 Difficulty: D = (n1/2)*(N2/n2) <br />
 Effort: E = V * D <br />
-Bugs delivered = E<sup>2/3</sup>/3000 <br />
+Bugs delivered: E<sup>2/3</sup>/3000 <br />
 
 * *Cyclocmatic Complexity Measures*: <br />
 v(G) = #edges - #vertices + 2 <br />
