@@ -3,7 +3,7 @@
 Some my own thoughts after class of week 6. On the class, we learn some metrics to measure the code. <br />
 * *Halstead's Complexity Measures*:
   * Operators: traditional(+, -), and keywords(return, if, break), N1(unique n1) <br />
-  * Operands: identifiers, constants, N2(unique n2) <br />
+  * Operands: identifiers, constants, N2(unique n2)
 Length: N = N1 + N2 <br />
 Vocabulary: n = n1 + n2 <br />
 Volume: V = Nlog<sub>2</sub>n <br />
